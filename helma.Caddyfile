@@ -24,6 +24,7 @@ helma.pbzweihander.me {
 }
 
 helma.pbzweihander.me/files {
+    import common
     root /srv/files
     browse
 }
@@ -34,6 +35,7 @@ irc.pbzweihander.me {
 }
 
 rocket.pbzweihander.me {
+    import common
     proxy /ip_manager localhost:8000;
     proxy /glt localhost:8001;
 }
