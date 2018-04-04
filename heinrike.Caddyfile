@@ -1,0 +1,41 @@
+(common) {
+    gzip
+
+    # Strict security headers
+    header / {
+        # Enable HSTS. https://mdn.io/HSTS
+        Strict-Transport-Security "max-age=15768000"
+        # Enable stricter XSS protection. https://mdn.io/X-XSS-Protection
+        X-XSS-Protection "1; mode=block"
+        # Prevent MIME-sniffing. https://mdn.io/X-Content-Type-Options
+        X-Content-Type-Options "nosniff"
+        # Prevent clickjacking. https://mdn.io/X-Frame-Options
+        X-Frame-Options "DENY"
+    }
+}
+
+heinrike.pbzweihander.me {
+    import common
+    redir /keybase.txt /files/keybase.txt 301
+    root /srv/helma.pbzweihander.me
+    errors {
+        * index.html
+    }
+}
+
+heinrike.pbzweihander.me/files {
+    import common
+    root /srv/files
+    browse
+}
+
+torrent.pbzweihander.me {
+    import common
+    proxy / localhost:9091
+}
+
+torrent.pbzweihander.me/downloads {
+    import common
+    root /var/lib/transmission-daemon/downloads
+    browse
+}
