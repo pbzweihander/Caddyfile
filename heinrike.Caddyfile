@@ -16,14 +16,15 @@
 
 heinrike.pbzweihander.me {
     import common
-    redir /keybase.txt /files/keybase.txt 301
-    root /srv/helma.pbzweihander.me
+    redir /keybase.txt /files/keybase.txt
+    redir /files /files/
+    root /srv/heinrike.pbzweihander.me
     errors {
         * index.html
     }
 }
 
-heinrike.pbzweihander.me/files {
+heinrike.pbzweihander.me/files/ {
     import common
     root /srv/files
     browse
@@ -31,11 +32,12 @@ heinrike.pbzweihander.me/files {
 
 torrent.pbzweihander.me {
     import common
+    redir /downloads /downloads/
     proxy / localhost:9091
 }
 
-torrent.pbzweihander.me/downloads {
+torrent.pbzweihander.me/downloads/ {
     import common
-    root /var/lib/transmission-daemon/downloads
+    root /media/ext/torrent
     browse
 }

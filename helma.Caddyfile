@@ -16,14 +16,15 @@
 
 helma.pbzweihander.me {
     import common
-    redir /keybase.txt /files/keybase.txt 301
+    redir /keybase.txt /files/keybase.txt
+    redir /files /files/
     root /srv/helma.pbzweihander.me
     errors {
         * index.html
     }
 }
 
-helma.pbzweihander.me/files {
+helma.pbzweihander.me/files/ {
     import common
     root /srv/files
     browse
