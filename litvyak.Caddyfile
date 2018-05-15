@@ -30,3 +30,10 @@ litvyak.pbzweihander.me/files/ {
     browse
 }
 
+irc.litvyak.pbzweihander.me {
+    import common
+    proxy / localhost:9000 {
+        transparent
+        header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
+    }
+}
