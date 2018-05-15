@@ -14,30 +14,19 @@
     }
 }
 
-heinrike.pbzweihander.me {
+litvyak.pbzweihander.me {
     import common
     redir /keybase.txt /files/keybase.txt
     redir /files /files/
-    root /srv/heinrike.pbzweihander.me
+    root /var/www/greeting/litvyak
     errors {
         * index.html
     }
 }
 
-heinrike.pbzweihander.me/files/ {
+litvyak.pbzweihander.me/files/ {
     import common
-    root /srv/files
+    root /var/www/files
     browse
 }
 
-torrent.pbzweihander.me {
-    import common
-    redir /downloads /downloads/
-    proxy / localhost:9091
-}
-
-torrent.pbzweihander.me/downloads/ {
-    import common
-    root /media/ext/torrent
-    browse
-}
