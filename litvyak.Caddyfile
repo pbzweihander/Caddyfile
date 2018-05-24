@@ -3,13 +3,9 @@
 
     # Strict security headers
     header / {
-        # Enable HSTS. https://mdn.io/HSTS
         Strict-Transport-Security "max-age=15768000"
-        # Enable stricter XSS protection. https://mdn.io/X-XSS-Protection
         X-XSS-Protection "1; mode=block"
-        # Prevent MIME-sniffing. https://mdn.io/X-Content-Type-Options
         X-Content-Type-Options "nosniff"
-        # Prevent clickjacking. https://mdn.io/X-Frame-Options
         X-Frame-Options "DENY"
     }
 }
@@ -32,6 +28,10 @@ litvyak.pbzweihander.me/files/ {
 
 irc.litvyak.pbzweihander.me {
     import common
+    proxy /socket.io/ localhost:9000 {
+        transparent
+        websocket
+    }
     proxy / localhost:9000 {
         transparent
         header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
