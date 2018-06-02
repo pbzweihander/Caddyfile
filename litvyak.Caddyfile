@@ -37,3 +37,14 @@ irc.litvyak.pbzweihander.me {
         header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
     }
 }
+
+znc.litvyak.pbzweihander.me {
+    import common
+
+    log /var/log/caddy/znc.log
+
+    proxy / localhost:8080 {
+        transparent
+        header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
+    }
+}
